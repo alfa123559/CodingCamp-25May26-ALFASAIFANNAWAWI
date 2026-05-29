@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<title>Expense & Budget Visualizer</title>
+<html>
+<head>
+  <style>
+    .center {
+      text-align:center;
+    }
+  </style>
+</head>
+<body>
+  <div class="center">
+     <h1>Expense & Budget Visualizer</h1><br/>
+    Total Balance<br/>
+    <ul id="listBarang"></ul>
+  <h2><span id="totalbalance">Rp 0</span></h2>
+  </div>
+  <fieldset>
+  <h4>Add Transaction</h4>
+  Item Name<br/>
+  <select>
+    <option>choose</option>
+    <option>Bakso</option>
+    <option>Train</option>
+    <option>Ancol</option>
+  </select>
+  <br/>
+  Amount<br/>
+  <select>
+    <option>Choose</option>
+    <option>RP 20.000</option>
+    <option>RP 30.000</option>
+    <option>RP 55.000</option>
+  </select>
+  <br/>
+  Category<br/>
+  <select>
+    <option>choose</option>
+    <option>Food</option>
+    <option>transport</option>
+    <option>Fun</option>
+  </select>
+  <br/>
+  <br/>
+  <button style="text-align:center;background-color:rgb(30, 124, 218);
+  color:rgb(242, 235, 235)">Add transaction</button><br/>
+</fieldset>
+<br/>
+<B>Transaction</B>
+<br/>
+Bakso
+<br/>
+<input type="text"><button>Delete</button>
+<br/>
+Train
+<br/>
+<input type="text"><button>Delete</button>
+<br/>
+Ancol
+<br/>
+<input type="text"><button>Delete</button>
+</body>
+</html>
+<p style="text-align:right"></p>
+ <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <h2>Spending by category</h2>
+  <canvas id="myPieChart" width="400" height="400"></canvas>
+
+  <script>
+    const ctx = document.getElementById('myPieChart').getContext('2d');
+    const myPieChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: ['Bakso', 'Train', 'Ancol'],
+        datasets: [{
+          data: [42.5, 55.2, 17.2], // proporsi
+          backgroundColor: ['red', 'blue', 'green'], // warna tiap bagian
+          borderColor: '#fff',
+          borderWidth: 2
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'bottom'
+          },
+          title: {
+            display: true,
+            text: 'Pie Chart: Bakso, Train, Ancol'
+          }
+        }
+      }
+    });
+  </script>
